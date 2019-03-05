@@ -50,19 +50,11 @@ function statement( invoice,plays ) {
   }
 
   function totalAmount(data){
-    let result = 0;
-    for (let perf of data.performances) {
-      result += perf.amount;
-    }
-    return result;
+    return data.performances.reduce( (total,performance) => total += performance.amount,0);
   }
 
   function totalVolumeCredits(data){
-    let result = 0;
-    for (let perf of data.performances) {
-      result += perf.volumeCredits;
-    }
-    return result;
+    return data.performances.reduce( (total,performance) => total += performance.volumeCredits,0);
   }
 }
 
